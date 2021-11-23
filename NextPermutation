@@ -1,0 +1,33 @@
+class Solution:
+   
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        l =len(nums)
+        s1=0
+        s2=0
+        for i in range(l-2,-1,-1):
+            if(nums[i]<nums[i+1]):
+                s1=i
+                break
+                
+        for j in range(l-1,-1,-1):
+            if(nums[j]>nums[s1]):
+                s2=j
+                break
+        if(s1==0 and s2==0):
+            return nums.reverse()
+        temp = nums[s1]
+        nums[s1]=nums[s2]
+        nums[s2]=temp
+        
+        
+        size = l-1 + s1+1
+        for i in range(s1+1, (size + 1) // 2 ):
+            j = size - i
+            nums[i], nums[j] = nums[j], nums[i]
+        return nums
+    
+
+    
