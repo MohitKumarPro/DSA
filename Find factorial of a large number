@@ -1,0 +1,21 @@
+#User function Template for python3
+
+class Solution:
+    def factorial(self, N):
+        a=[]
+        c=0
+        val=2
+        a.insert(0,1)
+   
+        size=1
+        while(val<=N):
+            for i in range(size-1,-1,-1):
+                temp= a[i]*val+c
+                a[i]=int(temp%10)
+                c=int(temp/10)
+            while(int(c)!=0):
+                a.insert(0,int(c%10))
+                c=c/10
+                size=size+1
+            val=val+1
+        return a
