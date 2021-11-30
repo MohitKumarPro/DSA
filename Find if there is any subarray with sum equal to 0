@@ -1,0 +1,27 @@
+
+def subArrayExists(arr,n):
+        ##Your code here
+        #Return true or false
+    k=0
+    m=[0]*n
+    mm=[0]*1000
+    
+    if 0 in arr:
+        return "Yes"
+    for i in range(0,n):
+        k=arr[i]+k
+        m[i]=k
+    if 0 in m:
+        return "Yes"
+    for j in range(0,n):
+        mm[m[j]]+=1
+        
+    
+    for k in range(0,len(mm)):
+        if(mm[k]>1):
+            return "Yes"
+        
+    return "No"
+    
+m=subArrayExists([1,2,-3,4,5],5)
+print(m)
