@@ -1,0 +1,24 @@
+class Solution:
+
+	# Function to find maximum
+	# product subarray
+	def maxProduct(self,arr, n):
+		# code here
+		mn=1
+		mx=1
+		res=1
+		if(n==1):
+		    return arr[0]
+		for i in range(0,n):
+		   if(arr[i]>0):
+		       mx = mx*arr[i]
+		       mn = min(mn*arr[i],1)
+		   elif(arr[i]==0):
+		       mn=mx=1
+		   else:
+		       temp=mx
+		       mx=mn
+		       mn=temp
+		       mn=arr[i]*mn
+		       mx=max(1,arr[i]*mx)
+		   res=max(mx,res)
