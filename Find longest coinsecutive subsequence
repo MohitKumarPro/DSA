@@ -1,0 +1,21 @@
+class Solution:
+    
+    # arr[] : the input array
+    # N : size of the array arr[]
+    
+    #Function to return length of longest subsequence of consecutive integers.
+    def findLongestConseqSubseq(self,arr, N):
+        #code here
+        res=1
+        c=1
+        arr.sort()
+        for i in range(1,n):
+            if(arr[i-1]+1==arr[i]):
+                c=c+1
+            elif(arr[i-1]==arr[i]):
+                pass
+            else:
+                c=1
+            if(res<c):
+                res=c
+        return res
