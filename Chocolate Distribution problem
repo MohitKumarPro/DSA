@@ -1,0 +1,15 @@
+class Solution:
+
+    def findMinDiff(self, A,N,M):
+
+        # code here
+        mn=100000
+        i=0
+        A.sort()
+        while(i+M-1<N):
+            d = A[i+M-1]-A[i]
+            if(d<mn):
+                mn=d
+                
+            i+=1
+        return mn
