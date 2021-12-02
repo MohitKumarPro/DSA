@@ -1,0 +1,16 @@
+class Solution:
+    def trappingWater(self, arr,n):
+        #Code here
+        left=[0]*n
+        right=[0]*n
+        ans=0
+        left[0]=arr[0]
+        for i in range(1,n):
+            left[i]=max(left[i-1],arr[i])
+        right[n-1]=arr[n-1]
+        for j in range(n-2,-1,-1):
+            right[j] = max(right[j+1],arr[j])
+        for k in range(0,n):
+            ans += min(right[k],left[k])-arr[k]
+        return ans            
+                
