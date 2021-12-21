@@ -1,0 +1,23 @@
+class Solution:
+    #Function to partition the array around the range such 
+    #that array is divided into three parts.
+	def threeWayPartition(self, array, a, b):
+	    # code here 
+	    l=0
+	    r=len(array)-1
+	    
+	    i=0
+	    while(i<=r):
+            if(array[i]<a):
+                t1=array[i]
+                array[i]=array[l]
+                array[l]=t1
+                l=l+1
+            elif(array[i]>b):
+                t=array[i]
+                array[i]=array[r]
+                array[r]=t
+                r=r-1
+                i=i-1
+            i=i+1
+        return array
